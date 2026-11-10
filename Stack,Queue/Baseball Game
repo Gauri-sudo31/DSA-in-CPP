@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int calPoints(vector<string>& operations) {
+        vector <int> record;
+        for(int i=0;i<operations.size();i++)
+        {
+            string k=operations[i];
+        if(k == "+")
+        record.push_back(record.back()+record[record.size()-2]);
+        else if(k =="C")
+        record.pop_back();
+        else if(k =="D")
+        record.push_back((record.back()*2));
+        else
+        record.push_back(stoi(k));        
+        }
+         int sum=0;
+        for(int i=0;i<record.size();i++)
+        {
+           
+            sum+=record[i];
+        }
+        return sum;
+    }
+};
